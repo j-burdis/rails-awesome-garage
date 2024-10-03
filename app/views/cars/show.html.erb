@@ -1,18 +1,38 @@
-<h4> <%= @car.brand %> <%= @car.model %> </h4>
-
-<p>
-  <% @car.reviews.each do |review| %>
-    <p> Comment: <%= review.comment %> </p>
-    <p> Rating: <%= review.rating %> </p>
-  <% end %>
-</p>
-
-<div>
-<%= simple_form_for [@car, @review] do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.button :submit, class: 'btn btn-success' %>
-<% end %>
+<div class='navbar'>
+	<div id='emoji'>
+	  <i class="fa-solid fa-road"></i>
+	</div>
+	<div>
+		<%= link_to "Home", cars_path %>
+     | 
+    <%= link_to "My garage", favourites_path %>
+	</div>
 </div>
 
-<p> <%= link_to "Back to cars", cars_path %> </p>
+<div class="container">
+  <h4> <%= @car.brand %> <%= @car.model %> </h4>
+  <% if @car.favourites.empty? %>
+    <%= simple_form_for [@car, @favourite] do |f| %>
+      <%= f.submit "Favourite" %>
+    <% end%>
+  <% else %>  
+    <%= "Favourited" %>
+  <% end %>
+
+  <p>
+    <% @car.reviews.each do |review| %>
+      <p> Comment: <%= review.comment %> </p>
+      <p> Rating: <%= review.rating %> </p>
+    <% end %>
+  </p>
+
+  <div>
+  <%= simple_form_for [@car, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating, collection: 0..5 %>
+    <%= f.button :submit, class: 'btn btn-success' %>
+  <% end %>
+  </div>
+
+  <p> <%= link_to "Back to cars", cars_path %> </p>
+</div>

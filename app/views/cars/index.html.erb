@@ -1,10 +1,25 @@
-<p> <%= link_to "Home", cars_path %> </p>
-<p> My garage </p>
+<div class='navbar'>
+	<div id='emoji'>
+	  <i class="fa-solid fa-road"></i>
+	</div>
+	<div>
+		<%= link_to "Home", cars_path %>
+     | 
+    <%= link_to "My garage", favourites_path %>
+	</div>
+</div>
 
-<h4> Our garage </h4>
-
-<p>
-  <% @cars.each do |car| %>
-    <%= link_to car.model, car_path(car) %>
-  <% end %>
-</p>
+<div class="container">
+  <div class="cards-container">
+    <h4> The Paddock </h4>
+      <% @cars.each do |car| %>
+        <div class="car-card">
+          <%= link_to car_path(car) do %>
+            <%= image_tag car.image_url %>
+          <% end %>
+          <%= link_to "#{car.brand} #{car.model}", car_path(car) %>
+          <p><%= car.year %> | <%= car.fuel %></p>
+        </div>
+      <% end %>
+  </div>
+</div>

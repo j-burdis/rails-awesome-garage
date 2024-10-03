@@ -6,6 +6,7 @@ class CarsController < ApplicationController
 
   def show
     @review = Review.new
+    @favourite = Favourite.new
   end
 
   private

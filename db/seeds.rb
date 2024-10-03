@@ -8,8 +8,21 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+puts ""
 
-Owner.create!(nickname: "Jon")
-Owner.create!(nickname: "Paul")
-Car.create!(brand: "Nissan", model: "Qashqai", year: 2014, fuel: "Diesel", owner_id: 1)
-Car.create!(brand: "Ferrari", model: "Testarossa", year: 1984, fuel: "Petrol", owner_id: 2)
+Review.destroy_all
+Favourite.destroy_all
+Car.destroy_all
+Owner.destroy_all
+
+puts "Database serviced"
+
+puts "Manufacturing motors"
+
+jon = Owner.create!(nickname: "Jon")
+paul = Owner.create!(nickname: "Paul")
+
+Car.create!(brand: "Nissan", model: "Qashqai", year: 2014, fuel: "Diesel", owner: jon, image_url: "https://cdn.motor1.com/images/mgl/Oq3Jo/s3/2017-nissan-qashqai.jpg")
+Car.create!(brand: "Ferrari", model: "Testarossa", year: 1984, fuel: "Petrol", owner: paul, image_url: "https://www.classicdriver.com/sites/default/files/article_images/testarossa_01.jpg")
+
+puts "Finished"

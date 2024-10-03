@@ -1,0 +1,24 @@
+<div class='navbar'>
+	<div id='emoji'>
+	  <i class="fa-solid fa-road"></i>
+	</div>
+	<div>
+		<%= link_to "Home", cars_path %>
+     | 
+    <%= link_to "My garage", favourites_path %>
+	</div>
+</div>
+
+<div class="container">
+  <h4>My garage</h4>
+
+  <p> <%= link_to "Back to cars", cars_path %> </p>
+
+  <p>
+    <% @favourites.each do |favourite| %>
+      </p><%= favourite.car.brand %> <%= favourite.car.model %> (<%= favourite.car.year %> - <%= favourite.car.fuel %>)
+      <p><%= link_to "Delete", favourite_path(favourite), class: 'btn btn-danger',
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    <% end %>
+  </p>
+</div>
