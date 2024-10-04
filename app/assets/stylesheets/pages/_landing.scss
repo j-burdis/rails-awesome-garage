@@ -31,14 +31,15 @@ html, body {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
   h3 {
-    // color: #CE2B37;
     font-weight: bold;
     font-size: 36px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   }
 
   h4 {
     font-weight: bold;
     font-size: 28px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   }
 
   a {
@@ -53,27 +54,27 @@ html, body {
 }
 
 .italy-green {
-  color: #009246; /* Italian flag green */
+  color: #009246;
 }
 
 .italy-white {
-  color: white; /* White part of the flag */
+  color: white;
 }
 
 .italy-red {
-  color: #CE2B37; /* Italian flag red */
+  color: #CE2B37;
 }
 
 a.start-link {
-  text-decoration: none; /* remove underline */
-  color: inherit; /* keep the span colors */
+  text-decoration: none;
+  color: inherit;
   transition: color 0.3s ease;
 }
 
 a.start-link:hover .italy-green,
 a.start-link:hover .italy-white,
 a.start-link:hover .italy-red {
-  color: #CE2B37; /* Apply hover color to all spans inside the link */
+  color: #CE2B37;
 }
 
 span {
