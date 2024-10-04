@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [ :show ]
   def index
-    @cars = Car.all
+    @cars = Car.includes(:owner).all
   end
 
   def show

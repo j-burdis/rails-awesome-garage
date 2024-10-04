@@ -10,15 +10,27 @@
 </div>
 
 <div class="container">
-  <h4>My garage</h4>
-
-  <p> <%= link_to "Back to cars", cars_path %> </p>
-
-  <p>
+  <div class="fav-container">
+    <h4>My garage</h4>
     <% @favourites.each do |favourite| %>
-      </p><%= favourite.car.brand %> <%= favourite.car.model %> (<%= favourite.car.year %> - <%= favourite.car.fuel %>)
-      <p><%= link_to "Delete", favourite_path(favourite), class: 'btn btn-danger',
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+      <div class="fav-card">
+        <%#= image_tag favourite.car.image_url %>
+        <%= link_to image_tag(favourite.car.image_url), car_path(favourite.car), class: 'fav-image' %>
+        <div class="details">
+          <div class="fav-info">
+            <%= link_to car_path(favourite.car) do %>
+              <h6><%= favourite.car.brand %></h6>
+              <h6><%= favourite.car.model %></h6>
+            <% end %>
+            <p><%= favourite.car.year %> | <%= favourite.car.fuel %></p>
+          </div>
+          <div class="btn-delete">
+            <p><%= link_to raw('<i class="fa-solid fa-trash-can"></i>'), favourite_path(favourite),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </p>
+    <p class="back-link"> <%= link_to "Back to cars", cars_path %> </p>
+  </div>
 </div>

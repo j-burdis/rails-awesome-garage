@@ -2,7 +2,7 @@
 
 .cards-container {
   margin: 16px auto;
-  width: 80%;
+  width: 60%;
   border-radius: 5px;
   box-shadow: 0 0 30px rgba(0,0,0,0.1);
   display: flex;
@@ -15,6 +15,7 @@
 }
 
 .car-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: 8px;
@@ -23,20 +24,25 @@
   overflow: hidden;
   
   img {
-    height: 200px;
+    height: 300px;
     width: 100%;
     object-fit: cover;
     transition: filter 0.3s ease;
+    border-radius: 5px 5px 0 0;
+    padding: 0px;
   
     &:hover {
       filter: brightness(0.7);
     }
   }
 
+  .car-link {
+    padding: 4px 8px;
+  }
+
   a {
     color: rgb(25, 25, 25);
     text-decoration: none;
-    padding: 4px 8px;
     padding-bottom: 0px;
   }
 
@@ -49,4 +55,19 @@
     padding: 4px 8px;
     margin: 0px;
   }
+}
+
+.owner-tag {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  background-color: #CE2B37;
+  border-radius: 15px;
+  padding: 4px 8px;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  color: white;
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.1);
+  font-size: 14px;
 }

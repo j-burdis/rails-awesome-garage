@@ -10,29 +10,44 @@
 </div>
 
 <div class="container">
-  <h4> <%= @car.brand %> <%= @car.model %> </h4>
-  <% if @car.favourites.empty? %>
-    <%= simple_form_for [@car, @favourite] do |f| %>
-      <%= f.submit "Favourite" %>
-    <% end%>
-  <% else %>  
-    <%= "Favourited" %>
-  <% end %>
-
-  <p>
-    <% @car.reviews.each do |review| %>
-      <p> Comment: <%= review.comment %> </p>
-      <p> Rating: <%= review.rating %> </p>
+  <div class="show-container">
+    <div> <%= image_tag @car.image_url %> </div>
+    
+    <div class="btn-favourite">
+    <% if @car.favourites.empty? %>
+      <%= simple_form_for [@car, @favourite] do |f| %>
+        <%= f.submit "Favourite", class: "favourite-button" %>
+      <% end%>
+    <% else %>  
+      <span class="favourited-text">Favourited</span>
     <% end %>
-  </p>
+    </div>
 
-  <div>
-  <%= simple_form_for [@car, @review] do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating, collection: 0..5 %>
-    <%= f.button :submit, class: 'btn btn-success' %>
-  <% end %>
+    <div class="details">
+      <div class="car-data">
+        <h4> <%= @car.brand %> </h4>
+        <h5> <%= @car.model %> </h5>
+        <h6> <%= @car.fuel %> </h6>
+        <h6> <%= @car.year %> </h6>
+        <p> <%= link_to "Back to Paddock", cars_path %> </p>
+      </div>
+      
+      <div class="new-review">
+        <%= simple_form_for [@car, @review] do |f| %>
+          <%= f.input :comment %>
+          <%= f.input :rating, collection: 0..5 %>
+          <%= f.button :submit, class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="all-reviews">
+      <% @car.reviews.each do |review| %>
+        <p> <%= review.comment %>
+         | 
+        <%= render_stars(review.rating) %> </p>
+      <% end %>
+    </div>
+
   </div>
-
-  <p> <%= link_to "Back to cars", cars_path %> </p>
 </div>

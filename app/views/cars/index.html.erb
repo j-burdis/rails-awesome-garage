@@ -17,8 +17,9 @@
           <%= link_to car_path(car) do %>
             <%= image_tag car.image_url %>
           <% end %>
-          <%= link_to "#{car.brand} #{car.model}", car_path(car) %>
+          <%= link_to "#{car.brand} #{car.model}", car_path(car), class: "car-link" %>
           <p><%= car.year %> | <%= car.fuel %></p>
+          <div class="owner-tag"> <%= car.owner.nickname %> </div>
         </div>
       <% end %>
   </div>

@@ -1,0 +1,95 @@
+.fav-container {
+  margin: 16px auto;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    padding: 8px;
+    margin: 0px;
+  }
+}
+
+.fav-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin: 0px;
+}
+
+.fav-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 4px 0px;
+
+  img {
+    height: 100%;
+    width: 180px;
+    object-fit: cover;
+  }
+
+  h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+  .fav-info {
+    padding: 16px;
+  }
+  
+  .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .btn-delete {
+    padding: 24px;
+
+    .fa-solid {
+      font-size: 24px;
+    }
+  }
+}
+
+.fav-image {
+  display: block;
+  height: 100%;
+  width: 180px;
+  transition: filter 0.3s ease;
+
+  &:hover {
+    filter: brightness(0.7);
+  }
+}
+
+.back-link {
+  margin: 8px 8px;
+
+  a {
+    color: rgb(25, 25, 25);
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: rgb(125, 125, 125);
+  }
+}
